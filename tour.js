@@ -21,7 +21,7 @@
         title: "Install the Tracking Snippet",
         body:
           'The Rebrandly SDK is installed in the <code>&lt;head&gt;</code> of every page on this health system site. It loads automatically and begins tracking page views -- no extra code needed.' +
-          '<div class="tour-code-block"><code>&lt;script\n  src="https://cdn.test.rebrandly.com/sdk/v1/rbly.min.js"\n  data-api-key="YOUR_API_KEY"&gt;\n&lt;/script&gt;</code></div>' +
+          '<div class="tour-code-block"><code>&lt;script\n  src="https://track.rebrandly.click/sdk/latest/rbly.min.js"\n  data-api-key="YOUR_API_KEY"&gt;\n&lt;/script&gt;</code></div>' +
           "This single snippet is all you paste into your CMS header injection (WordPress, Squarespace, Webflow, etc.).",
         position: "bottom",
         highlight: ".nav",
