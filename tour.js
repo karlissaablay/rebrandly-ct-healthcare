@@ -1,6 +1,6 @@
 /**
  * Guided Product Tour for Rebrandly Conversion Tracking Demo
- * Healthcare / CareConnect Edition
+ * Healthcare / CareConnect Health Edition
  *
  * A lightweight tooltip tour system that overlays on the actual demo pages.
  * Tour steps are defined per-page and highlight real elements with tooltips
@@ -20,7 +20,7 @@
         target: "head-script",
         title: "Install the Tracking Snippet",
         body:
-          'The Rebrandly SDK is installed in the <code>&lt;head&gt;</code> of every page on this site. It loads automatically and begins tracking page views — no extra code needed.' +
+          'The Rebrandly SDK is installed in the <code>&lt;head&gt;</code> of every page on this health system site. It loads automatically and begins tracking page views -- no extra code needed.' +
           '<div class="tour-code-block"><code>&lt;script\n  src="https://cdn.test.rebrandly.com/sdk/v1/rbly.min.js"\n  data-api-key="YOUR_API_KEY"&gt;\n&lt;/script&gt;</code></div>' +
           "This single snippet is all you paste into your CMS header injection (WordPress, Squarespace, Webflow, etc.).",
         position: "bottom",
@@ -30,41 +30,41 @@
       {
         target: ".hero",
         title: "Page View Tracked Automatically",
-        body: "When a visitor lands on this page via a tracked Rebrandly link, the SDK automatically records a <code>page_view</code> event. No code needed — it fires on every page where the snippet is installed.",
+        body: 'When a patient visits this page via a tracked Rebrandly link, the SDK automatically records a <code>page_view</code> event. No code needed -- it fires on every page where the snippet is installed.',
         position: "bottom",
         stepLabel: "Install Snippet",
       },
       {
-        target: 'a[href="signup.html"].btn-primary.btn-large',
+        target: '.hero-search .btn-primary',
         title: "CTA Click Event",
-        body: "When a healthcare provider clicks this CTA, we fire a <code>cta_click</code> custom event that captures which button was clicked and from which page. This helps measure intent before the actual conversion." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'cta_click\',\n  properties: {\n    ctaText: \'Start Free Trial\',\n    sourcePage: \'index.html\'\n  }\n});</code></div>',
+        body: 'When a patient clicks "Book Appointment", we fire a <code>cta_click</code> event that captures which button was clicked and from which page. This measures intent before the actual conversion.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'cta_click\',\n  properties: {\n    ctaText: \'Book Appointment\',\n    sourcePage: \'index.html\'\n  }\n});</code></div>',
         position: "top",
         stepLabel: "Custom Events",
       },
       {
         target: null,
-        title: "Next: See Conversion Events",
-        body: "Now let's walk through the pages where actual conversions happen — the pricing page and signup form.<br><br>Click <strong>Next</strong> to continue the tour on the Pricing page.",
+        title: "Next: Doctor Directory",
+        body: "As patients browse services, each page view is recorded and attributed back to the original link click.<br><br>Next, let's see what happens when a patient looks for a doctor.",
         position: "center",
         stepLabel: "Custom Events",
-        nextPage: "pricing.html?tour=1&step=0",
+        nextPage: "doctors.html?tour=1&step=0",
       },
     ],
 
-    "pricing.html": [
+    "doctors.html": [
       {
-        target: ".pricing-card.featured",
-        title: "High-Intent Page View",
-        body: "When a healthcare provider reaches the pricing page, we fire a <code>pricing_viewed</code> event — a high-intent signal that the visitor is evaluating plans. This is tracked as a custom conversion event on top of the automatic page view." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'pricing_viewed\',\n  properties: {\n    referrer: document.referrer\n  }\n});</code></div>',
-        position: "left",
+        target: ".doctors-grid",
+        title: "Doctor Directory Viewed",
+        body: 'When patients reach the doctor directory, a <code>doctor_directory_viewed</code> event fires -- a high-intent signal that the patient is actively seeking care.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'doctor_directory_viewed\',\n  properties: {\n    referrer: document.referrer\n  }\n});</code></div>',
+        position: "top",
         stepLabel: "Custom Events",
       },
       {
         target: null,
-        title: "Next: The Signup Form",
-        body: "The provider picks a plan and clicks \"Start Free Trial\". Let's see what happens on the signup page.<br><br>Click <strong>Next</strong> to continue.",
+        title: "Next: Patient Registration",
+        body: "The patient picks a doctor and decides to register. Let's see the signup form and the events it fires.",
         position: "center",
         stepLabel: "Custom Events",
         nextPage: "signup.html?tour=1&step=0",
@@ -74,35 +74,36 @@
     "signup.html": [
       {
         target: "#signup-form",
-        title: "Signup Conversion Event",
-        body: "When the provider submits this form, we fire a <code>signup</code> conversion event. It captures the selected plan, specialty, and practice name — linking this conversion back to the original Rebrandly link click." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'signup\',\n  properties: {\n    plan: \'practice\',\n    specialty: \'primary-care\',\n    practiceName: \'Valley Health\'\n  }\n});</code></div>',
+        title: "Patient Registration Event",
+        body: 'When the patient submits registration, a <code>patient_registration</code> event fires with their insurance provider and preferred location -- linking this conversion back to the original Rebrandly link click.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'patient_registration\',\n  properties: {\n    insuranceProvider: \'blue-cross\',\n    preferredLocation: \'downtown\'\n  }\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
       {
-        target: "#specialty",
-        title: "Specialty Selection Event",
-        body: "We also track when the provider changes the specialty dropdown — a <code>specialty_selected</code> event with the specialty value. This lets you see which medical specialties are most interested in CareConnect.",
+        target: "#insurance",
+        title: "Insurance Selection Event",
+        body: 'Selecting an insurance provider fires an <code>insurance_selected</code> event -- useful for segmenting conversions by payer type and understanding which insurance networks drive the most patient acquisitions.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'insurance_selected\',\n  properties: {\n    provider: \'blue-cross\'\n  }\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
       {
         target: null,
-        title: "Next: Purchase Confirmation",
-        body: "After submitting the form, the provider lands on the thank-you page. That's where the revenue event fires.<br><br>Click <strong>Next</strong> to see the final step.",
+        title: "Next: Registration Complete",
+        body: "After registration, we fire the final conversion event. Let's see the confirmation page.",
         position: "center",
         stepLabel: "Custom Events",
-        nextPage: "thank-you.html?tour=1&step=0&plan=practice",
+        nextPage: "thank-you.html?tour=1&step=0&insurance=blue-cross&location=downtown",
       },
     ],
 
     "thank-you.html": [
       {
-        target: ".success-icon",
-        title: "Purchase Event with Revenue",
-        body: "This is the money moment. On page load, we fire a <code>purchase</code> event with the revenue value attached. This is what powers the revenue attribution in the Rebrandly analytics dashboard." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'purchase\',\n  revenue: 149.00,\n  currency: \'USD\',\n  properties: {\n    plan: \'practice\',\n    billingCycle: \'monthly\'\n  }\n});</code></div>',
+        target: "#success-section",
+        title: "Registration Complete Event",
+        body: '<code>registration_complete</code> fires as the final conversion -- this patient acquisition is now fully attributed to the original Rebrandly link.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'registration_complete\',\n  revenue: 0,\n  currency: \'USD\',\n  properties: {\n    insuranceProvider: \'blue-cross\',\n    location: \'downtown\'\n  }\n});</code></div>',
         position: "bottom",
         stepLabel: "Custom Events",
       },
@@ -113,9 +114,10 @@
           "1. <strong>Snippet installed</strong> in the site header<br>" +
           "2. <strong>Page views</strong> tracked automatically on every page<br>" +
           "3. <strong>CTA clicks</strong> tracked on the homepage<br>" +
-          "4. <strong>Pricing viewed</strong> as a high-intent signal<br>" +
-          "5. <strong>Signup</strong> captured on form submit with specialty data<br>" +
-          "6. <strong>Purchase</strong> with $149 revenue on confirmation<br><br>" +
+          "4. <strong>Doctor directory viewed</strong> as a high-intent signal<br>" +
+          "5. <strong>Insurance selected</strong> for payer segmentation<br>" +
+          "6. <strong>Patient registration</strong> captured on form submit<br>" +
+          "7. <strong>Registration complete</strong> as the final conversion<br><br>" +
           "All attributed back to the original Rebrandly link click via <code>rbly_click_id</code>.",
         position: "center",
         stepLabel: "Summary",
@@ -311,7 +313,7 @@
     tooltip.classList.remove("tour-tooltip-center");
 
     // Calculate overall progress across all pages
-    var allPages = ["index.html", "pricing.html", "signup.html", "thank-you.html"];
+    var allPages = ["index.html", "doctors.html", "signup.html", "thank-you.html"];
     var pageKey = getPageKey();
     var totalSteps = 0;
     var currentGlobal = 0;
@@ -367,7 +369,7 @@
   function updateBar(index) {
     var stepLabels = ["Install Snippet", "Custom Events", "Summary"];
     var pageKey = getPageKey();
-    var allPages = ["index.html", "pricing.html", "signup.html", "thank-you.html"];
+    var allPages = ["index.html", "doctors.html", "signup.html", "thank-you.html"];
     var pageIndex = allPages.indexOf(pageKey);
 
     // Map to simplified bar steps: 0=snippet (index step 0-1), 1=events (rest), 2=summary

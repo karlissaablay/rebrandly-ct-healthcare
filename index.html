@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CareConnect - Patient Engagement Platform</title>
+  <title>CareConnect Health - Your Health, Simplified</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tour.css">
   <!-- REBRANDLY CONVERSION TRACKING -->
@@ -16,14 +16,14 @@
     <div class="container">
       <a href="index.html" class="nav-logo">
         <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0d9488"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
-        CareConnect
+        CareConnect Health
       </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
-        <li><a href="signup.html" class="btn btn-primary">Start Free Trial</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="patient-portal.html">Patient Portal</a></li>
+        <li><a href="signup.html" class="btn btn-primary">Book Appointment</a></li>
       </ul>
     </div>
   </nav>
@@ -31,76 +31,104 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Patient engagement that <span>drives better outcomes</span></h1>
-      <p>CareConnect helps healthcare providers reduce no-shows, improve patient satisfaction, and streamline care coordination — all in one HIPAA-compliant platform.</p>
-      <div class="hero-actions">
-        <a href="signup.html" class="btn btn-primary btn-large">Start Free Trial</a>
-        <a href="features.html" class="btn btn-secondary btn-large">See Features</a>
+      <div class="hero-content">
+        <h1>Your health, <span>simplified</span></h1>
+        <p>Compassionate, personalized care from providers who put you first. Book same-day appointments, message your doctor, and manage your health -- all in one place.</p>
+        <div class="hero-search">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" class="search-input" placeholder="Find a doctor or service..." disabled>
+          </div>
+          <a href="signup.html" class="btn btn-primary btn-large">Book Appointment</a>
+        </div>
+        <div class="hero-badges">
+          <span class="hero-badge">Same-day appointments</span>
+          <span class="hero-badge">Accepting new patients</span>
+          <span class="hero-badge">Most insurance accepted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="section" id="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <p>Comprehensive care for you and your family, from routine checkups to specialized treatment.</p>
+      </div>
+      <div class="services-grid">
+        <a href="services.html" class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+          </div>
+          <h3>Primary Care</h3>
+          <p>Annual physicals, wellness visits, and ongoing health management</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3>Urgent Care</h3>
+          <p>Walk-in care for non-emergency illness and injuries</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+          </div>
+          <h3>Mental Health</h3>
+          <p>Therapy, counseling, and psychiatric care for all ages</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/></svg>
+          </div>
+          <h3>Pediatrics</h3>
+          <p>Well-child visits, vaccinations, and pediatric specialists</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+          </div>
+          <h3>Women's Health</h3>
+          <p>OB/GYN, reproductive health, and wellness screenings</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11.42 15.17l-5.384 3.174 1.028-5.992-4.356-4.246 6.018-.874L11.42 1.5l2.692 5.732 6.018.874-4.356 4.246 1.028 5.992z"/></svg>
+          </div>
+          <h3>Chronic Care</h3>
+          <p>Diabetes, hypertension, and long-term condition management</p>
+        </a>
+      </div>
+      <div class="section-footer">
+        <a href="services.html" class="btn btn-secondary">View All Services</a>
       </div>
     </div>
   </section>
 
   <!-- Stats -->
-  <section class="section">
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat">
-          <h3>850+</h3>
-          <p>Healthcare providers</p>
-        </div>
-        <div class="stat">
-          <h3>94%</h3>
-          <p>Patient satisfaction</p>
-        </div>
-        <div class="stat">
-          <h3>40%</h3>
-          <p>Fewer no-shows</p>
-        </div>
-        <div class="stat">
-          <h3>HIPAA</h3>
-          <p>Compliant</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Overview -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>Everything your practice needs to engage patients</h2>
-        <p>From appointment reminders to telehealth, CareConnect keeps patients connected and care teams coordinated.</p>
+        <h2>Why patients choose us</h2>
       </div>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">&#128100;</div>
-          <h3>Patient Portal</h3>
-          <p>Give patients 24/7 access to their health records, lab results, and care plans through a secure, mobile-friendly portal.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <h3>50,000+</h3>
+          <p>Patients served</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128276;</div>
-          <h3>Appointment Reminders</h3>
-          <p>Automated SMS, email, and voice reminders that reduce no-shows by up to 40%. Customizable timing and messaging per provider.</p>
+        <div class="stat">
+          <h3>4.8/5</h3>
+          <p>Patient satisfaction</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128172;</div>
-          <h3>Secure Messaging</h3>
-          <p>HIPAA-compliant two-way messaging between patients and care teams. Encrypted end-to-end with audit logging.</p>
+        <div class="stat">
+          <h3>200+</h3>
+          <p>Care providers</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128249;</div>
-          <h3>Telehealth Integration</h3>
-          <p>Built-in video visits with waiting rooms, screen sharing, and automatic visit notes. No additional software needed.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128203;</div>
-          <h3>Care Plan Tracking</h3>
-          <p>Create and monitor patient care plans with milestone tracking, medication adherence alerts, and follow-up scheduling.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128200;</div>
-          <h3>Analytics Dashboard</h3>
-          <p>Real-time insights into patient engagement metrics, appointment trends, satisfaction scores, and operational efficiency.</p>
+        <div class="stat">
+          <h3>Same-Day</h3>
+          <p>Appointments available</p>
         </div>
       </div>
     </div>
@@ -110,37 +138,46 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Trusted by healthcare providers nationwide</h2>
-        <p>See how clinics and practices use CareConnect to improve patient outcomes.</p>
+        <h2>What our patients say</h2>
+        <p>Real stories from people in our care.</p>
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-card">
-          <blockquote>"Our no-show rate dropped from 22% to 13% in the first month. The automated reminders pay for themselves ten times over."</blockquote>
+          <div class="testimonial-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <blockquote>"I was able to book a same-day appointment when my daughter woke up with a fever. Dr. Patel was so patient and thorough -- she even followed up the next morning to check on her."</blockquote>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">DR</div>
+            <div class="testimonial-avatar">SL</div>
             <div>
-              <div class="testimonial-name">Dr. Rachel Nguyen</div>
-              <div class="testimonial-role">Family Medicine, Valley Health Clinic</div>
+              <div class="testimonial-name">Sarah L.</div>
+              <div class="testimonial-role">Patient since 2023</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <blockquote>"Our patients love the portal. They can see their lab results, message us directly, and schedule follow-ups — all without calling the office."</blockquote>
+          <div class="testimonial-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <blockquote>"Managing my diabetes used to feel overwhelming. My care team here created a plan that actually works for my lifestyle. I feel like they genuinely care about me as a person."</blockquote>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">MK</div>
+            <div class="testimonial-avatar">MR</div>
             <div>
-              <div class="testimonial-name">Maria Kowalski, RN</div>
-              <div class="testimonial-role">Practice Manager, Sunrise Pediatrics</div>
+              <div class="testimonial-name">Marcus R.</div>
+              <div class="testimonial-role">Patient since 2021</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <blockquote>"The HIPAA compliance was non-negotiable for us. CareConnect gave us enterprise-grade security without the enterprise-grade complexity."</blockquote>
+          <div class="testimonial-stars">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+          </div>
+          <blockquote>"The patient portal is incredible. I can see my test results, message my doctor directly, and even refill prescriptions without calling anyone. It's healthcare the way it should be."</blockquote>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">JM</div>
+            <div class="testimonial-avatar">JT</div>
             <div>
-              <div class="testimonial-name">James Mitchell</div>
-              <div class="testimonial-role">CIO, Coastal Mental Health Group</div>
+              <div class="testimonial-name">Jennifer T.</div>
+              <div class="testimonial-role">Patient since 2022</div>
             </div>
           </div>
         </div>
@@ -151,9 +188,9 @@
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Better patient engagement starts here</h2>
-      <p>Join 850+ healthcare providers improving outcomes with CareConnect.</p>
-      <a href="signup.html" class="btn btn-primary btn-large">Start Your Free Trial</a>
+      <h2>Ready to get started?</h2>
+      <p>New patients are always welcome. Book your first appointment today.</p>
+      <a href="signup.html" class="btn btn-primary btn-large">Book Appointment</a>
     </div>
   </section>
 
@@ -164,37 +201,42 @@
         <div class="footer-brand">
           <div class="nav-logo" style="color:#fff;">
             <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0d9488"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
-            CareConnect
+            CareConnect Health
           </div>
-          <p>HIPAA-compliant patient engagement for modern healthcare practices. Reduce no-shows, improve satisfaction, and streamline care coordination.</p>
+          <p>Compassionate, patient-centered care for individuals and families. Accepting most major insurance plans.</p>
         </div>
         <div>
-          <h4>Product</h4>
+          <h4>Care</h4>
           <ul>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Find a Doctor</a></li>
+            <li><a href="patient-portal.html">Patient Portal</a></li>
           </ul>
         </div>
         <div>
-          <h4>Company</h4>
+          <h4>Patients</h4>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="signup.html">New Patients</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><a href="#">Billing</a></li>
           </ul>
         </div>
         <div>
-          <h4>Support</h4>
+          <h4>Contact</h4>
           <ul>
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">API Reference</a></li>
-            <li><a href="signup.html">Get Started</a></li>
+            <li><a href="#">(555) 234-5678</a></li>
+            <li><a href="#">info@careconnect.health</a></li>
+            <li><a href="#">Locations</a></li>
           </ul>
         </div>
       </div>
+      <div class="footer-trust">
+        <span class="trust-badge">HIPAA Compliant</span>
+        <span class="trust-badge">Joint Commission Accredited</span>
+        <span class="trust-badge">SOC 2 Certified</span>
+      </div>
       <div class="footer-bottom">
-        &copy; 2026 CareConnect. This is a demo site for Rebrandly Conversion Tracking testing.
+        &copy; 2026 CareConnect Health. This is a demo site for Rebrandly Conversion Tracking testing.
       </div>
     </div>
   </footer>

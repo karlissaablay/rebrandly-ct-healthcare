@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - CareConnect</title>
+  <title>New Patient Registration - CareConnect Health</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tour.css">
   <!-- REBRANDLY CONVERSION TRACKING -->
@@ -16,77 +16,81 @@
     <div class="container">
       <a href="index.html" class="nav-logo">
         <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0d9488"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
-        CareConnect
+        CareConnect Health
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="patient-portal.html">Patient Portal</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Signup Form -->
+  <!-- Registration Form -->
   <section class="form-page">
     <div class="container">
       <div class="form-wrapper">
-        <h1>Start your free trial</h1>
-        <p>No credit card required. HIPAA-compliant from day one. Get your practice set up in under a day.</p>
+        <h1>New Patient Registration</h1>
+        <p>Create your account to book appointments, access your health records, and message your care team.</p>
 
         <form id="signup-form" action="thank-you.html" method="GET">
           <div class="form-row">
             <div class="form-group">
               <label for="first-name">First name</label>
-              <input type="text" id="first-name" name="first_name" placeholder="Rachel" required>
+              <input type="text" id="first-name" name="first_name" placeholder="Sarah" required>
             </div>
             <div class="form-group">
               <label for="last-name">Last name</label>
-              <input type="text" id="last-name" name="last_name" placeholder="Nguyen" required>
+              <input type="text" id="last-name" name="last_name" placeholder="Johnson" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Work email</label>
-            <input type="email" id="email" name="email" placeholder="rachel@valleyhealth.com" required>
+            <label for="dob">Date of birth</label>
+            <input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" required>
           </div>
 
           <div class="form-group">
-            <label for="practice-name">Practice name</label>
-            <input type="text" id="practice-name" name="practice_name" placeholder="Valley Health Clinic">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="sarah@email.com" required>
           </div>
 
           <div class="form-group">
-            <label for="specialty">Specialty</label>
-            <select id="specialty" name="specialty">
-              <option value="">Select your specialty</option>
-              <option value="primary-care">Primary Care / Family Medicine</option>
-              <option value="mental-health">Mental Health / Behavioral Health</option>
-              <option value="dental">Dental</option>
-              <option value="urgent-care">Urgent Care</option>
-              <option value="pediatrics">Pediatrics</option>
-              <option value="cardiology">Cardiology</option>
-              <option value="orthopedics">Orthopedics</option>
-              <option value="dermatology">Dermatology</option>
-              <option value="ob-gyn">OB/GYN</option>
-              <option value="other">Other Specialty</option>
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+          </div>
+
+          <div class="form-group">
+            <label for="insurance">Insurance provider</label>
+            <select id="insurance" name="insurance">
+              <option value="">Select your insurance</option>
+              <option value="aetna">Aetna</option>
+              <option value="blue-cross">Blue Cross Blue Shield</option>
+              <option value="cigna">Cigna</option>
+              <option value="unitedhealth">UnitedHealthcare</option>
+              <option value="kaiser">Kaiser Permanente</option>
+              <option value="medicare">Medicare</option>
+              <option value="self-pay">Self-Pay</option>
+              <option value="other">Other</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="plan">Plan</label>
-            <select id="plan" name="plan">
-              <option value="clinic">Clinic (Free)</option>
-              <option value="practice" selected>Practice ($149/mo)</option>
-              <option value="enterprise">Enterprise (Contact Sales)</option>
+            <label for="location">Preferred location</label>
+            <select id="location" name="location">
+              <option value="">Select a location</option>
+              <option value="downtown">Downtown Clinic</option>
+              <option value="westside">Westside Medical</option>
+              <option value="northpark">Northpark Health Center</option>
             </select>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-large">Create Account</button>
+          <button type="submit" class="btn btn-primary btn-large">Create My Account</button>
         </form>
 
         <div class="form-footer">
-          Already have an account? <a href="#">Sign in</a>
+          By creating an account you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Your information is protected under HIPAA.
         </div>
       </div>
     </div>

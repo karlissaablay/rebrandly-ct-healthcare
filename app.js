@@ -1,24 +1,18 @@
 /**
- * CareConnect Demo Site - Rebrandly Conversion Tracking Events
+ * CareConnect Health - Rebrandly Conversion Tracking Events
  *
- * Events tracked:
- * 1. "cta_click"            — User clicks any CTA leading to signup (all pages)
- * 2. "pricing_viewed"       — User lands on the pricing page (high-intent signal)
- * 3. "specialty_selected"   — User selects a specialty in the signup form dropdown
- * 4. "signup"               — User submits the signup form
- * 5. "purchase"             — Paid plan confirmation on thank-you page with revenue
+ * Events tracked (patient journey):
+ * 1. "cta_click"                — Patient clicks "Book Appointment" or "Create Account" CTA
+ * 2. "doctor_directory_viewed"  — Patient lands on the doctors page (high-intent signal)
+ * 3. "insurance_selected"       — Patient selects an insurance provider on signup
+ * 4. "patient_registration"     — Patient submits the registration form
+ * 5. "registration_complete"    — Patient reaches the thank-you page (full conversion)
  *
  * Page views are tracked automatically by the Rebrandly SDK snippet.
  */
 
 (function () {
   "use strict";
-
-  var PLAN_PRICES = {
-    clinic: 0,
-    practice: 149.0,
-    enterprise: 0,
-  };
 
   // Helper: safely call trackConversion if the SDK has loaded
   function track(eventName, revenue, currency, properties) {
@@ -34,11 +28,14 @@
 
   // -----------------------------------------------------------
   // 1. CTA Click tracking (all pages)
-  //    Fires when a user clicks any primary CTA leading to signup
+  //    Fires when a patient clicks "Book Appointment" or signup CTAs
   // -----------------------------------------------------------
   document.addEventListener("click", function (e) {
-    var link = e.target.closest('a[href="signup.html"]');
+    var link = e.target.closest('a[href="signup.html"], a[href="doctors.html"]');
     if (!link) return;
+
+    // Only track buttons/CTAs, not regular nav links
+    if (!link.classList.contains("btn") && !link.closest(".cta-banner") && !link.closest(".hero") && !link.closest(".doctor-card") && !link.closest(".success-actions")) return;
 
     var ctaText = link.textContent.trim();
     var page = window.location.pathname.split("/").pop() || "index.html";
@@ -50,71 +47,98 @@
   });
 
   // -----------------------------------------------------------
-  // 2. Pricing page viewed (pricing.html)
-  //    High-intent signal — user is evaluating plans
+  // 2. Doctor directory viewed (doctors.html)
+  //    High-intent signal — patient is browsing providers
   // -----------------------------------------------------------
-  if (window.location.pathname.includes("pricing")) {
-    track("pricing_viewed", null, null, {
+  if (window.location.pathname.includes("doctors")) {
+    track("doctor_directory_viewed", null, null, {
       referrer: document.referrer || "direct",
     });
   }
 
   // -----------------------------------------------------------
-  // 3. Specialty selected (signup.html)
-  //    Fires when user changes the specialty dropdown
+  // 3. Insurance selected (signup.html)
+  //    Fires when patient picks an insurance provider
   // -----------------------------------------------------------
-  var specialtySelect = document.getElementById("specialty");
-  if (specialtySelect) {
-    specialtySelect.addEventListener("change", function () {
-      var specialty = specialtySelect.value;
-      track("specialty_selected", null, null, {
-        specialty: specialty,
-      });
+  var insuranceSelect = document.getElementById("insurance");
+  if (insuranceSelect) {
+    insuranceSelect.addEventListener("change", function () {
+      var provider = insuranceSelect.value;
+      if (provider) {
+        track("insurance_selected", null, null, {
+          provider: provider,
+        });
+      }
     });
   }
 
   // -----------------------------------------------------------
-  // 4. Signup event (signup.html)
-  //    Fires on form submission with plan and practice details
+  // 4. Patient registration (signup.html)
+  //    Fires on form submission with insurance and location data
   // -----------------------------------------------------------
   var signupForm = document.getElementById("signup-form");
   if (signupForm) {
     signupForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      var planSelect = document.getElementById("plan");
-      var plan = planSelect ? planSelect.value : "practice";
-      var specialty = specialtySelect ? specialtySelect.value : "";
-      var practiceName = document.getElementById("practice-name")
-        ? document.getElementById("practice-name").value
-        : "";
+      var insurance = insuranceSelect ? insuranceSelect.value : "";
+      var locationSelect = document.getElementById("location");
+      var location = locationSelect ? locationSelect.value : "";
 
-      track("signup", null, null, {
-        plan: plan,
-        specialty: specialty,
-        practiceName: practiceName,
+      track("patient_registration", null, null, {
+        insuranceProvider: insurance,
+        preferredLocation: location,
       });
 
-      // Navigate to thank-you page with plan info
-      window.location.href = "thank-you.html?plan=" + encodeURIComponent(plan);
+      // Navigate to thank-you page with context
+      window.location.href =
+        "thank-you.html?insurance=" + encodeURIComponent(insurance) +
+        "&location=" + encodeURIComponent(location);
     });
   }
 
   // -----------------------------------------------------------
-  // 5. Purchase event (thank-you.html)
-  //    Fires for paid plans with revenue attribution
+  // 5. Registration complete (thank-you.html)
+  //    Final conversion — patient acquisition fully attributed
   // -----------------------------------------------------------
   if (window.location.pathname.includes("thank-you")) {
     var params = new URLSearchParams(window.location.search);
-    var plan = params.get("plan");
+    var insurance = params.get("insurance") || "";
+    var location = params.get("location") || "";
 
-    if (plan && plan !== "clinic") {
-      var revenue = PLAN_PRICES[plan] || 0;
+    track("registration_complete", 0, "USD", {
+      insuranceProvider: insurance,
+      location: location,
+    });
+  }
 
-      track("purchase", revenue, "USD", {
-        plan: plan,
-        billingCycle: "monthly",
+  // -----------------------------------------------------------
+  // Doctor filter functionality (doctors.html)
+  // -----------------------------------------------------------
+  var filterBar = document.getElementById("doctor-filters");
+  var doctorsGrid = document.getElementById("doctors-grid");
+
+  if (filterBar && doctorsGrid) {
+    filterBar.addEventListener("click", function (e) {
+      var btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+
+      // Update active state
+      filterBar.querySelectorAll(".filter-btn").forEach(function (b) {
+        b.classList.remove("active");
       });
-    }
+      btn.classList.add("active");
+
+      var filter = btn.getAttribute("data-filter");
+      var cards = doctorsGrid.querySelectorAll(".doctor-card");
+
+      cards.forEach(function (card) {
+        if (filter === "all" || card.getAttribute("data-specialty") === filter) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
   }
 })();

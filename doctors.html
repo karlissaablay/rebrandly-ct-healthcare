@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Doctor - CareConnect Health</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tour.css">
+  <!-- REBRANDLY CONVERSION TRACKING -->
+  <script src="https://cdn.test.rebrandly.com/sdk/v1/rbly.min.js" data-api-key="433200b2fd6141da82f1bd3d49b8dce8"></script>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0d9488"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+        CareConnect Health
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="doctors.html" class="active">Doctors</a></li>
+        <li><a href="patient-portal.html">Patient Portal</a></li>
+        <li><a href="signup.html" class="btn btn-primary">Book Appointment</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero-compact">
+    <div class="container">
+      <h1>Find a <span>Doctor</span></h1>
+      <p>Browse our providers, read patient reviews, and book your appointment online.</p>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="filter-section">
+    <div class="container">
+      <div class="filter-bar" id="doctor-filters">
+        <button class="filter-btn active" data-filter="all">All Specialties</button>
+        <button class="filter-btn" data-filter="primary-care">Primary Care</button>
+        <button class="filter-btn" data-filter="mental-health">Mental Health</button>
+        <button class="filter-btn" data-filter="pediatrics">Pediatrics</button>
+        <button class="filter-btn" data-filter="cardiology">Cardiology</button>
+        <button class="filter-btn" data-filter="dermatology">Dermatology</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Cards -->
+  <section class="section" style="padding-top: 32px;">
+    <div class="container">
+      <div class="doctors-grid" id="doctors-grid">
+
+        <div class="doctor-card" data-specialty="primary-care">
+          <div class="doctor-avatar" style="background-color: #ccfbf1; color: #0d9488;">SP</div>
+          <div class="doctor-info">
+            <h3>Dr. Sarah Patel, MD</h3>
+            <p class="doctor-specialty">Primary Care / Internal Medicine</p>
+            <div class="doctor-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-text">4.9 (127 reviews)</span>
+            </div>
+            <span class="doctor-badge accepting">Accepting new patients</span>
+          </div>
+          <a href="signup.html" class="btn btn-primary btn-small">Book Appointment</a>
+        </div>
+
+        <div class="doctor-card" data-specialty="mental-health">
+          <div class="doctor-avatar" style="background-color: #ede9fe; color: #7c3aed;">JC</div>
+          <div class="doctor-info">
+            <h3>Dr. James Chen, PsyD</h3>
+            <p class="doctor-specialty">Clinical Psychology / CBT</p>
+            <div class="doctor-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-text">4.8 (89 reviews)</span>
+            </div>
+            <span class="doctor-badge accepting">Accepting new patients</span>
+          </div>
+          <a href="signup.html" class="btn btn-primary btn-small">Book Appointment</a>
+        </div>
+
+        <div class="doctor-card" data-specialty="pediatrics">
+          <div class="doctor-avatar" style="background-color: #fef3c7; color: #d97706;">AN</div>
+          <div class="doctor-info">
+            <h3>Dr. Amara Njoku, MD</h3>
+            <p class="doctor-specialty">Pediatrics</p>
+            <div class="doctor-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-text">4.9 (203 reviews)</span>
+            </div>
+            <span class="doctor-badge accepting">Accepting new patients</span>
+          </div>
+          <a href="signup.html" class="btn btn-primary btn-small">Book Appointment</a>
+        </div>
+
+        <div class="doctor-card" data-specialty="cardiology">
+          <div class="doctor-avatar" style="background-color: #fee2e2; color: #dc2626;">RK</div>
+          <div class="doctor-info">
+            <h3>Dr. Robert Kim, MD, FACC</h3>
+            <p class="doctor-specialty">Cardiology</p>
+            <div class="doctor-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+              <span class="rating-text">4.7 (156 reviews)</span>
+            </div>
+            <span class="doctor-badge accepting">Accepting new patients</span>
+          </div>
+          <a href="signup.html" class="btn btn-primary btn-small">Book Appointment</a>
+        </div>
+
+        <div class="doctor-card" data-specialty="dermatology">
+          <div class="doctor-avatar" style="background-color: #dbeafe; color: #2563eb;">LM</div>
+          <div class="doctor-info">
+            <h3>Dr. Lisa Martinez, MD</h3>
+            <p class="doctor-specialty">Dermatology</p>
+            <div class="doctor-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-text">4.8 (94 reviews)</span>
+            </div>
+            <span class="doctor-badge accepting">Accepting new patients</span>
+          </div>
+          <a href="signup.html" class="btn btn-primary btn-small">Book Appointment</a>
+        </div>
+
+        <div class="doctor-card" data-specialty="primary-care">
+          <div class="doctor-avatar" style="background-color: #d1fae5; color: #059669;">DW</div>
+          <div class="doctor-info">
+            <h3>Dr. David Washington, DO</h3>
+            <p class="doctor-specialty">Family Medicine</p>
+            <div class="doctor-rating">
+              <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="rating-text">4.9 (178 reviews)</span>
+            </div>
+            <span class="doctor-badge accepting">Accepting new patients</span>
+          </div>
+          <a href="signup.html" class="btn btn-primary btn-small">Book Appointment</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Not sure which doctor is right for you?</h2>
+      <p>Call us and our care coordinators will help match you with the right provider.</p>
+      <a href="signup.html" class="btn btn-primary btn-large">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="color:#fff;">
+            <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0d9488"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+            CareConnect Health
+          </div>
+          <p>Compassionate, patient-centered care for individuals and families. Accepting most major insurance plans.</p>
+        </div>
+        <div>
+          <h4>Care</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Find a Doctor</a></li>
+            <li><a href="patient-portal.html">Patient Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Patients</h4>
+          <ul>
+            <li><a href="signup.html">New Patients</a></li>
+            <li><a href="#">Insurance</a></li>
+            <li><a href="#">Billing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="#">(555) 234-5678</a></li>
+            <li><a href="#">info@careconnect.health</a></li>
+            <li><a href="#">Locations</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-trust">
+        <span class="trust-badge">HIPAA Compliant</span>
+        <span class="trust-badge">Joint Commission Accredited</span>
+        <span class="trust-badge">SOC 2 Certified</span>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 CareConnect Health. This is a demo site for Rebrandly Conversion Tracking testing.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="tour.js"></script>
+</body>
+</html>
