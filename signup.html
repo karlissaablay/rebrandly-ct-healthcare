@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - CareConnect</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tour.css">
+  <!-- REBRANDLY CONVERSION TRACKING -->
+  <script src="https://cdn.test.rebrandly.com/sdk/v1/rbly.min.js" data-api-key="433200b2fd6141da82f1bd3d49b8dce8"></script>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#0d9488"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+        CareConnect
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Signup Form -->
+  <section class="form-page">
+    <div class="container">
+      <div class="form-wrapper">
+        <h1>Start your free trial</h1>
+        <p>No credit card required. HIPAA-compliant from day one. Get your practice set up in under a day.</p>
+
+        <form id="signup-form" action="thank-you.html" method="GET">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Rachel" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Nguyen" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" placeholder="rachel@valleyhealth.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="practice-name">Practice name</label>
+            <input type="text" id="practice-name" name="practice_name" placeholder="Valley Health Clinic">
+          </div>
+
+          <div class="form-group">
+            <label for="specialty">Specialty</label>
+            <select id="specialty" name="specialty">
+              <option value="">Select your specialty</option>
+              <option value="primary-care">Primary Care / Family Medicine</option>
+              <option value="mental-health">Mental Health / Behavioral Health</option>
+              <option value="dental">Dental</option>
+              <option value="urgent-care">Urgent Care</option>
+              <option value="pediatrics">Pediatrics</option>
+              <option value="cardiology">Cardiology</option>
+              <option value="orthopedics">Orthopedics</option>
+              <option value="dermatology">Dermatology</option>
+              <option value="ob-gyn">OB/GYN</option>
+              <option value="other">Other Specialty</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="plan">Plan</label>
+            <select id="plan" name="plan">
+              <option value="clinic">Clinic (Free)</option>
+              <option value="practice" selected>Practice ($149/mo)</option>
+              <option value="enterprise">Enterprise (Contact Sales)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large">Create Account</button>
+        </form>
+
+        <div class="form-footer">
+          Already have an account? <a href="#">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+  <script src="tour.js"></script>
+</body>
+</html>
