@@ -14,16 +14,18 @@
 (function () {
   "use strict";
 
-  // Helper: safely call trackConversion if the SDK has loaded
+  // Helper: call rbly.track() — the SDK exposes window.rbly globally
   function track(eventName, revenue, currency, properties) {
-    if (typeof trackConversion === "function") {
+    if (typeof rbly !== "undefined" && typeof rbly.track === "function") {
       var payload = { eventName: eventName };
       if (revenue != null) payload.revenue = revenue;
       if (currency) payload.currency = currency;
       if (properties) payload.properties = properties;
-      trackConversion(payload);
+      rbly.track(payload);
+      console.log("[Rebrandly CT] Sent:", eventName, payload);
+    } else {
+      console.warn("[Rebrandly CT] SDK not loaded, skipping:", eventName);
     }
-    console.log("[Rebrandly CT]", eventName, { revenue: revenue, currency: currency, properties: properties });
   }
 
   // -----------------------------------------------------------
