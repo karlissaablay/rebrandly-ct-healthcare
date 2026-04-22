@@ -14,15 +14,15 @@
 (function () {
   "use strict";
 
-  // Helper: call rbly.track() — the SDK exposes window.rbly globally
+  // Helper: call rbly.track(eventName, properties)
+  // SDK signature: rbly.track(name: string, props: object)
   function track(eventName, revenue, currency, properties) {
     if (typeof rbly !== "undefined" && typeof rbly.track === "function") {
-      var payload = { eventName: eventName };
-      if (revenue != null) payload.revenue = revenue;
-      if (currency) payload.currency = currency;
-      if (properties) payload.properties = properties;
-      rbly.track(payload);
-      console.log("[Rebrandly CT] Sent:", eventName, payload);
+      var props = properties ? Object.assign({}, properties) : {};
+      if (revenue != null) props.revenue = revenue;
+      if (currency) props.currency = currency;
+      rbly.track(eventName, props);
+      console.log("[Rebrandly CT] Sent:", eventName, props);
     } else {
       console.warn("[Rebrandly CT] SDK not loaded, skipping:", eventName);
     }
