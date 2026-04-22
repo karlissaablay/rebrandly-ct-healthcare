@@ -38,7 +38,7 @@
         target: '.hero-search .btn-primary',
         title: "CTA Click Event",
         body: 'When a patient clicks "Book Appointment", we fire a <code>cta_click</code> event that captures which button was clicked and from which page. This measures intent before the actual conversion.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'cta_click\',\n  properties: {\n    ctaText: \'Book Appointment\',\n    sourcePage: \'index.html\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"cta_click\", {\n  ctaText: \"Book Appointment\",\n  sourcePage: \"index.html\"\n});</code></div>',
         position: "top",
         stepLabel: "Custom Events",
       },
@@ -57,7 +57,7 @@
         target: ".doctors-grid",
         title: "Doctor Directory Viewed",
         body: 'When patients reach the doctor directory, a <code>doctor_directory_viewed</code> event fires -- a high-intent signal that the patient is actively seeking care.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'doctor_directory_viewed\',\n  properties: {\n    referrer: document.referrer\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"doctor_directory_viewed\", {\n  referrer: document.referrer\n});</code></div>',
         position: "top",
         stepLabel: "Custom Events",
       },
@@ -76,7 +76,7 @@
         target: "#signup-form",
         title: "Patient Registration Event",
         body: 'When the patient submits registration, a <code>patient_registration</code> event fires with their insurance provider and preferred location -- linking this conversion back to the original Rebrandly link click.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'patient_registration\',\n  properties: {\n    insuranceProvider: \'blue-cross\',\n    preferredLocation: \'downtown\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"patient_registration\", {\n  insuranceProvider: \"blue-cross\",\n  preferredLocation: \"downtown\"\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
@@ -84,7 +84,7 @@
         target: "#insurance",
         title: "Insurance Selection Event",
         body: 'Selecting an insurance provider fires an <code>insurance_selected</code> event -- useful for segmenting conversions by payer type and understanding which insurance networks drive the most patient acquisitions.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'insurance_selected\',\n  properties: {\n    provider: \'blue-cross\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"insurance_selected\", {\n  provider: \"blue-cross\"\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
@@ -103,7 +103,7 @@
         target: "#success-section",
         title: "Registration Complete Event",
         body: '<code>registration_complete</code> fires as the final conversion -- this patient acquisition is now fully attributed to the original Rebrandly link.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'registration_complete\',\n  revenue: 0,\n  currency: \'USD\',\n  properties: {\n    insuranceProvider: \'blue-cross\',\n    location: \'downtown\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"registration_complete\", {\n  insuranceProvider: \"blue-cross\",\n  location: \"downtown\"\n});</code></div>',
         position: "bottom",
         stepLabel: "Custom Events",
       },
